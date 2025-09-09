@@ -314,6 +314,25 @@ services:
     volumes:
       - langfuse_postgres_data:/var/lib/postgresql/data
 
+  # Supabase Studio - Interface Web pour base de données
+  db:
+    image: supabase/studio:latest
+    container_name: supabase-studio
+    restart: unless-stopped
+    expose:
+      - 3000/tcp
+    environment:
+      - SUPABASE_URL=${SUPABASE_PUBLIC_URL:-http://localhost:8000}
+      - SUPABASE_REST_URL=http://localhost:${KONG_HTTP_PORT:-8000}/rest/v1/
+      - SUPABASE_ANON_KEY=${ANON_KEY}
+      - SUPABASE_SERVICE_KEY=${SERVICE_ROLE_KEY}
+      - STUDIO_DEFAULT_ORGANIZATION=${STUDIO_DEFAULT_ORGANIZATION:-LocalAI Enterprise}
+      - STUDIO_DEFAULT_PROJECT=${STUDIO_DEFAULT_PROJECT:-Production Stack}
+      - STUDIO_PORT=${STUDIO_PORT:-3000}
+    depends_on:
+      postgres:
+        condition: service_healthy
+
   redis:
     container_name: redis
     image: docker.io/valkey/valkey:8-alpine
