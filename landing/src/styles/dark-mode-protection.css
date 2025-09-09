@@ -1,0 +1,70 @@
+/* 
+ * DARK MODE PROTECTION - Guarantee dark mode exclusively
+ * This CSS ensures no light mode can ever be displayed
+ */
+
+/* Root level dark mode enforcement */
+:root {
+  color-scheme: dark !important;
+  background-color: #111827 !important;
+  color: #ffffff !important;
+}
+
+/* Prevent any light backgrounds from showing */
+html, body, #root, * {
+  --tw-bg-opacity: 1 !important;
+}
+
+/* Override any potential light mode classes */
+.light,
+html.light,
+body.light,
+[data-theme="light"],
+[class*="light-"] {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+  color-scheme: dark !important;
+}
+
+/* Ensure all text is visible in dark mode */
+body:not(.dark-ready) * {
+  color: #ffffff !important;
+  background-color: transparent !important;
+}
+
+/* Protection against CSS injection attempts */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #111827 !important;
+  z-index: -9999;
+  pointer-events: none;
+}
+
+/* Additional safety for common light mode patterns */
+.bg-white,
+.bg-gray-50,
+.bg-gray-100,
+[style*="background-color: white"],
+[style*="background-color: #ffffff"],
+[style*="background-color: #fff"] {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+}
+
+/* Force dark mode for any dynamically loaded content */
+* {
+  transition: none !important;
+}
+
+/* Prevent flash of incorrect content */
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: dark !important;
+    background-color: #111827 !important;
+  }
+}

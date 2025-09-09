@@ -1,0 +1,520 @@
+/* IA Souveraine - Système Neuro-Optimisé
+   Basé sur la psychologie cognitive et la théorie de Miller (5±2 éléments)
+   Conçu pour maximiser la conversion et réduire la charge cognitive
+*/
+
+:root {
+  /* PALETTE "TOURNESOL SOUVERAIN" - Système Neuro-Optimisé */
+  /* Basée sur psychologie des couleurs naturelles pour max conversion */
+  
+  /* 1. CONFIANCE PROFONDE - Bleu Pétrole (Fond principal, stabilité) */
+  --sovereign-deep: #034E64;
+  --sovereign-deep-50: #F0F9FF;
+  --sovereign-deep-100: #E0F2FE;
+  --sovereign-deep-200: #BAE6FD;
+  --sovereign-deep-500: #034E64;
+  --sovereign-deep-600: #024A5F;
+  --sovereign-deep-700: #02455A;
+  --sovereign-deep-800: #02404F;
+  --sovereign-deep-900: #023B44;
+
+  /* 2. ACTION SOLAIRE - Orange Solaire (CTA UNIQUE par page) */
+  --action-solar: #F06905;
+  --action-solar-50: #FFF7ED;
+  --action-solar-100: #FFEDD5;
+  --action-solar-200: #FED7AA;
+  --action-solar-500: #F06905;
+  --action-solar-600: #EA580C;
+  --action-solar-700: #C2410C;
+  --action-solar-800: #9A3412;
+  --action-solar-900: #7C2D12;
+
+  /* 3. SUCCÈS OPTIMISME - Jaune Prospérité (ROI, témoignages) */
+  --success-gold: #FEB909;
+  --success-gold-50: #FEFCE8;
+  --success-gold-100: #FEF9C3;
+  --success-gold-200: #FEF08A;
+  --success-gold-500: #FEB909;
+  --success-gold-600: #CA8A04;
+  --success-gold-700: #A16207;
+  --success-gold-800: #854D0E;
+  --success-gold-900: #713F12;
+
+  /* 4. CROISSANCE NATURELLE - Vert Développement (Features, évolution) */
+  --growth-green: #638D13;
+  --growth-green-50: #F7FEE7;
+  --growth-green-100: #ECFCCB;
+  --growth-green-200: #D9F99D;
+  --growth-green-500: #638D13;
+  --growth-green-600: #65A30D;
+  --growth-green-700: #4D7C0F;
+  --growth-green-800: #365314;
+  --growth-green-900: #1A2E05;
+
+  /* 5. PREMIUM STABILITÉ - Vert Foncé (Luxury, prestige) */
+  --premium-forest: #0A3226;
+  --premium-forest-50: #F0FDF4;
+  --premium-forest-100: #DCFCE7;
+  --premium-forest-200: #BBF7D0;
+  --premium-forest-500: #0A3226;
+  --premium-forest-600: #16A34A;
+  --premium-forest-700: #15803D;
+  --premium-forest-800: #0A3226;
+  --premium-forest-900: #052E16;
+}
+
+/* CLASSES UTILITAIRES "TOURNESOL SOUVERAIN" */
+
+/* 1. CONFIANCE PROFONDE (Bleu Pétrole) - Stabilité, Headers, Navigation */
+.btn-sovereign {
+  background: linear-gradient(135deg, var(--sovereign-deep), var(--sovereign-deep-600));
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 16px rgba(3, 78, 100, 0.6));
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-sovereign::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.btn-sovereign:hover::after {
+  transform: translateX(100%);
+}
+
+.btn-sovereign:hover {
+  background: linear-gradient(135deg, var(--sovereign-deep-600), var(--sovereign-deep-500));
+  transform: translateY(-2px) scale(1.02);
+  filter: drop-shadow(0 0 24px rgba(3, 78, 100, 0.8));
+}
+
+.btn-sovereign-outline {
+  border: 2px solid var(--sovereign-deep);
+  color: var(--sovereign-deep);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-sovereign-outline:hover {
+  background: var(--sovereign-deep-50);
+  transform: scale(1.05);
+  border-color: var(--sovereign-deep-700);
+}
+
+/* 2. ACTION SOLAIRE (Orange Critique) - 1 SEUL CTA PRINCIPAL PAR PAGE */
+.btn-action-critical {
+  background: linear-gradient(135deg, var(--action-solar), var(--action-solar-600));
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 20px rgba(240, 105, 5, 0.8));
+  position: relative;
+  overflow: hidden;
+  animation: solar-pulse 3s ease-in-out infinite;
+}
+
+@keyframes solar-pulse {
+  0%, 100% { 
+    filter: drop-shadow(0 0 20px rgba(240, 105, 5, 0.8)); 
+    transform: scale(1);
+  }
+  50% { 
+    filter: drop-shadow(0 0 30px rgba(240, 105, 5, 1)); 
+    transform: scale(1.02);
+  }
+}
+
+.btn-action-critical::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.7s;
+}
+
+.btn-action-critical:hover::before {
+  left: 100%;
+}
+
+.btn-action-critical:hover {
+  background: linear-gradient(135deg, var(--action-solar-600), var(--action-solar));
+  transform: translateY(-4px) scale(1.08);
+  filter: drop-shadow(0 0 40px rgba(240, 105, 5, 1));
+}
+
+.btn-action-outline {
+  border: 2px solid var(--action-solar);
+  color: var(--action-solar);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-action-outline:hover {
+  background: var(--action-solar-50);
+  transform: scale(1.05);
+  border-color: var(--action-solar-700);
+}
+
+/* 3. SUCCÈS OPTIMISME (Jaune Prospérité) - ROI, Témoignages, Validation */
+.btn-success {
+  background: linear-gradient(135deg, var(--success-gold), var(--success-gold-600));
+  color: var(--premium-forest);
+  border: none;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 16px rgba(254, 185, 9, 0.6));
+  font-weight: 700;
+}
+
+.btn-success:hover {
+  background: linear-gradient(135deg, var(--success-gold-600), var(--success-gold));
+  color: var(--premium-forest-800);
+  transform: translateY(-2px) scale(1.02);
+  filter: drop-shadow(0 0 24px rgba(254, 185, 9, 0.8));
+}
+
+.btn-success-outline {
+  border: 2px solid var(--success-gold);
+  color: var(--success-gold);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-success-outline:hover {
+  background: var(--success-gold-50);
+  transform: scale(1.05);
+  border-color: var(--success-gold-700);
+}
+
+/* 4. CROISSANCE NATURELLE (Vert Développement) - Features, Evolution */
+.btn-growth {
+  background: linear-gradient(135deg, var(--growth-green), var(--growth-green-600));
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 16px rgba(99, 141, 19, 0.6));
+}
+
+.btn-growth:hover {
+  background: linear-gradient(135deg, var(--growth-green-600), var(--growth-green));
+  transform: translateY(-2px) scale(1.02);
+  filter: drop-shadow(0 0 24px rgba(99, 141, 19, 0.8));
+}
+
+.btn-growth-outline {
+  border: 2px solid var(--growth-green);
+  color: var(--growth-green);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-growth-outline:hover {
+  background: var(--growth-green-50);
+  transform: scale(1.05);
+  border-color: var(--growth-green-700);
+}
+
+/* 4. ACTION CRITIQUE (Orange Urgence) - 1 SEUL CTA PRINCIPAL PAR PAGE */
+.btn-action-critical {
+  background: linear-gradient(135deg, var(--action-orange), var(--action-orange-600));
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 20px rgba(234, 88, 12, 0.8));
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-action-critical::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-action-critical:hover::before {
+  left: 100%;
+}
+
+.btn-action-critical:hover {
+  background: linear-gradient(135deg, var(--action-orange-600), var(--action-orange));
+  transform: translateY(-3px) scale(1.05);
+  filter: drop-shadow(0 0 32px rgba(234, 88, 12, 1));
+  animation: pulse-orange 2s infinite;
+}
+
+@keyframes pulse-orange {
+  0%, 100% { filter: drop-shadow(0 0 32px rgba(234, 88, 12, 1)); }
+  50% { filter: drop-shadow(0 0 40px rgba(234, 88, 12, 1)); }
+}
+
+/* 5. NEUTRE (Slate Professionnel) - Texte, Bordures, Passif */
+.text-neutral {
+  color: var(--neutral-slate-600);
+}
+
+.text-neutral-light {
+  color: var(--neutral-slate-400);
+}
+
+.border-neutral {
+  border-color: var(--neutral-slate-200);
+}
+
+/* GLASSMORPHISM "TOURNESOL" OPTIMISÉ */
+.glass-sovereign {
+  background: rgba(3, 78, 100, 0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(3, 78, 100, 0.2);
+  box-shadow: 0 8px 32px rgba(3, 78, 100, 0.1);
+}
+
+.glass-action {
+  background: rgba(240, 105, 5, 0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(240, 105, 5, 0.2);
+  box-shadow: 0 8px 32px rgba(240, 105, 5, 0.15);
+}
+
+.glass-success {
+  background: rgba(254, 185, 9, 0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(254, 185, 9, 0.2);
+  box-shadow: 0 8px 32px rgba(254, 185, 9, 0.1);
+}
+
+.glass-growth {
+  background: rgba(99, 141, 19, 0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(99, 141, 19, 0.2);
+  box-shadow: 0 8px 32px rgba(99, 141, 19, 0.1);
+}
+
+.glass-premium {
+  background: rgba(10, 50, 38, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(10, 50, 38, 0.3);
+  box-shadow: 0 8px 32px rgba(10, 50, 38, 0.2);
+}
+
+/* RÈGLES DE HIÉRARCHIE VISUELLE */
+
+/* Règle 1: 1 seul CTA critique par page */
+.page-container .btn-action-critical {
+  /* S'assure qu'il n'y a qu'un seul CTA critique visible */
+  z-index: 100;
+}
+
+/* Règle 2: Progression émotionnelle Bleu → Violet → Vert */
+.journey-trust { color: var(--sovereign-blue); }
+.journey-innovation { color: var(--innovation-purple); }  
+.journey-success { color: var(--success-green); }
+
+/* Règle 3: Dominance 60/30/10 */
+.section-dominant-blue {
+  --primary-color: var(--sovereign-blue);
+  --secondary-color: var(--neutral-slate);
+  --accent-color: var(--success-green);
+}
+
+.section-dominant-purple {
+  --primary-color: var(--innovation-purple);
+  --secondary-color: var(--sovereign-blue);
+  --accent-color: var(--action-orange);
+}
+
+.section-dominant-green {
+  --primary-color: var(--success-green);
+  --secondary-color: var(--sovereign-blue);
+  --accent-color: var(--neutral-slate);
+}
+
+/* DARK MODE COMPATIBLE */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Ajustements pour le dark mode */
+    --sovereign-blue: #3B82F6;
+    --innovation-purple: #8B5CF6;
+    --success-green: #10B981;
+    --action-orange: #F59E0B;
+    --neutral-slate: #94A3B8;
+  }
+}
+
+/* ANIMATIONS CRÉATIVES TOURNESOL */
+
+/* Animation gradient qui suit la palette naturelle */
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 4s ease infinite;
+}
+
+/* Animation de respiration pour les éléments importants */
+@keyframes breathe {
+  0%, 100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 20px var(--success-gold)); }
+  50% { transform: scale(1.02) rotate(0.5deg); filter: drop-shadow(0 0 35px var(--success-gold)); }
+}
+
+.animate-breathe {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+/* Animation de pulsation harmonieuse */
+@keyframes pulse-tournesol {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(3, 78, 100, 0.3), inset 0 0 20px rgba(254, 185, 9, 0.1);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(3, 78, 100, 0.5), inset 0 0 40px rgba(254, 185, 9, 0.2);
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-tournesol {
+  animation: pulse-tournesol 2s ease-in-out infinite;
+}
+
+/* Animation de rotation douce pour les icônes */
+@keyframes rotate-gentle {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(90deg) scale(1.05); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  75% { transform: rotate(270deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.animate-rotate-gentle {
+  animation: rotate-gentle 8s linear infinite;
+}
+
+/* Effet de levitation intelligent */
+@keyframes float-smart {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    filter: drop-shadow(0 5px 15px rgba(3, 78, 100, 0.2));
+  }
+  25% { 
+    transform: translateY(-8px) rotate(1deg);
+    filter: drop-shadow(0 15px 25px rgba(240, 105, 5, 0.3));
+  }
+  50% { 
+    transform: translateY(-12px) rotate(0deg);
+    filter: drop-shadow(0 20px 35px rgba(254, 185, 9, 0.4));
+  }
+  75% { 
+    transform: translateY(-8px) rotate(-1deg);
+    filter: drop-shadow(0 15px 25px rgba(99, 141, 19, 0.3));
+  }
+}
+
+.animate-float-smart {
+  animation: float-smart 6s ease-in-out infinite;
+}
+
+/* MICRO-INTERACTIONS INTELLIGENTES */
+
+/* Hover effect qui révèle progressivement les couleurs */
+.reveal-colors {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.reveal-colors::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(254, 185, 9, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.reveal-colors:hover::before {
+  left: 100%;
+}
+
+.reveal-colors:hover {
+  color: var(--success-gold);
+  text-shadow: 0 0 20px rgba(254, 185, 9, 0.6);
+}
+
+/* Effet de morphing intelligent pour les cartes */
+.morph-card {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+.morph-card:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(3, 78, 100, 0.2),
+    0 10px 20px rgba(240, 105, 5, 0.1),
+    inset 0 0 30px rgba(254, 185, 9, 0.05);
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 768px) {
+  /* Simplification couleurs sur mobile */
+  .btn-sovereign, .btn-innovation, .btn-success {
+    filter: none; /* Retire les effets complexes sur mobile */
+  }
+  
+  .btn-action-critical {
+    filter: drop-shadow(0 0 12px rgba(234, 88, 12, 0.6));
+  }
+  
+  /* Désactive les animations complexes sur mobile pour la performance */
+  .animate-gradient-x, .animate-float-smart, .animate-rotate-gentle {
+    animation: none;
+  }
+}
+
+/* ACCESSIBILITÉ */
+@media (prefers-reduced-motion: reduce) {
+  .btn-sovereign, .btn-innovation, .btn-success, .btn-action-critical {
+    transition: none;
+    animation: none;
+  }
+  
+  .btn-sovereign:hover, .btn-innovation:hover, .btn-success:hover, .btn-action-critical:hover {
+    transform: none;
+  }
+}
+
+/* CONTRASTE MINIMUM WCAG AA */
+.high-contrast-mode {
+  --sovereign-blue: #1D4ED8;
+  --innovation-purple: #6D28D9;
+  --success-green: #047857;
+  --action-orange: #DC2626;
+  --neutral-slate: #1F2937;
+}
